@@ -1,19 +1,54 @@
 ---
-title: "My title"
-subtitle: "My subtitle if needed"
+title: "Marriage on the Rise"
+
 author: 
-  - First author
-  - Another author
-thanks: "Code and data are available at: LINK."
+  - Elizabeth Luong
+thanks: "Code and data are available at: ."
 date: today
 date-format: long
-abstract: "First sentence. Second sentence. Third sentence. Fourth sentence."
+abstract: "This paper examines the trends in marriage licenses issued in Toronto over the past 13 years. By analyzing data from OpenDataToronto using Python for data processing and visualization, several interesting patterns emerge. Notably, a significant increase in marriages is observed immediately following the COVID-19 pandemic in 2021. Seasonal trends are also highlighted, revealing that marriage rates tend to peak during the summer months. This study sheds light on how societal events and seasonality influence marriage behaviors."
+bibliography: references.bib
+execute:
+  echo: false
 format: pdf
 number-sections: true
-bibliography: references.bib
 ---
 
-```{r}
+```{python}
+#| echo: false
+#| warning: false
+#| label: Fig-1
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from pathlib import Path
+
+current_dir = Path.cwd()
+file_path = current_dir.parent / 'data' /'analysis_data'/ 'cleaned_marriage_data.csv'
+# Sample DataFrame
+data = pd.read_csv(file_path)
+
+
+df = pd.DataFrame(data)
+
+# Plotting the average marriage licenses by month
+plt.figure(figsize=(10, 6))
+sns.lineplot(data=data, x='TIME_PERIOD', y='MARRIAGE_LICENSES', marker='o')
+plt.title('Average Marriage Licenses by Month')
+plt.xlabel('Month-Year')
+plt.ylabel('Average Number of Licenses')
+plt.grid(True)
+plt.xticks(data['TIME_PERIOD'][::24],rotation=45)
+plt.tight_layout()
+
+# Display the plot
+plt.show()
+
+```
+
+@Fig-1 shows how many interesting trends have been observed in the number of marriage licenses over the past 13 years. The first visible trend is how many marriages there have been since COVID-19, prior to COVID-19 there were between 100 and 700 marriages a month, however, immediately afterwards in 2021, it reached above 1750 in one month. This makes sense but it is also super cool.  We also see that on average, the summer months have a lot more marriages.  Very interesting trends!
+
+
 #| include: false
 #| warning: false
 #| message: false
