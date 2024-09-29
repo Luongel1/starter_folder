@@ -36,4 +36,8 @@ data <-
 
 
 #### Write_csv
+<<<<<<< HEAD
 write_csv(data, file = "data/raw_data/simulated.csv")
+=======
+write_csv(data, file = "data/raw_data/simulated.csv")
+>>>>>>> 4eb8cc29a4d3256df8c31f218ab87f87059ea7b6

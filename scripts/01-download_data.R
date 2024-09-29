@@ -25,6 +25,13 @@ datastore_resources <- filter(resources, tolower(format) %in% c('csv', 'geojson'
 # load the first datastore resource as a sample
 data <- filter(datastore_resources, row_number()==1) %>% 
   get_resource()
+<<<<<<< HEAD
+=======
+
+
+#### Save data ####
+write_csv(data, "data/raw_data/raw_data.csv") 
+>>>>>>> 4eb8cc29a4d3256df8c31f218ab87f87059ea7b6
 
 
 #### Save data ####

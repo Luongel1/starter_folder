@@ -15,6 +15,85 @@ number-sections: true
 ---
 
 ```{python}
+<<<<<<< HEAD
+=======
+#| echo: false
+#| warning: false
+#| label: Fig-1
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from pathlib import Path
+
+current_dir = Path.cwd()
+file_path = current_dir.parent / 'data' /'analysis_data'/ 'cleaned_marriage_data.csv'
+# Sample DataFrame
+data = pd.read_csv(file_path)
+
+
+df = pd.DataFrame(data)
+
+# Plotting the average marriage licenses by month
+plt.figure(figsize=(10, 6))
+sns.lineplot(data=data, x='TIME_PERIOD', y='MARRIAGE_LICENSES', marker='o')
+plt.title('Average Marriage Licenses by Month')
+plt.xlabel('Month-Year')
+plt.ylabel('Average Number of Licenses')
+plt.grid(True)
+plt.xticks(data['TIME_PERIOD'][::24],rotation=45)
+plt.tight_layout()
+
+# Display the plot
+plt.show()
+
+```
+
+@Fig-1 shows how many interesting trends have been observed in the number of marriage licenses over the past 13 years. The first visible trend is how many marriages there have been since COVID-19, prior to COVID-19 there were between 100 and 700 marriages a month, however, immediately afterwards in 2021, it reached above 1750 in one month. This makes sense but it is also super cool.  We also see that on average, the summer months have a lot more marriages.  Very interesting trends!
+
+
+#| include: false
+#| warning: false
+#| message: false
+
+library(tidyverse)
+library(palmerpenguins)
+```
+
+
+# Introduction
+
+You can and should cross-reference sections and sub-sections. We use @citeR and @rohan.
+
+The remainder of this paper is structured as follows. @sec-data....
+
+
+
+# Data {#sec-data}
+
+Some of our data is of penguins (@fig-bills), from @palmerpenguins.
+
+```{r}
+#| label: fig-bills
+#| fig-cap: Bills of penguins
+#| echo: false
+
+ggplot(penguins, aes(x = island, fill = species)) +
+  geom_bar(alpha = 0.8) +
+  scale_fill_manual(values = c("darkorange","purple","cyan4"),
+                    guide = "none") +
+  theme_minimal() +
+  facet_wrap(~species, ncol = 1) +
+  coord_flip()
+```
+
+Talk more about it.
+
+And also planes (@fig-planes). (You can change the height and width, but don't worry about doing that until you have finished every other aspect of the paper - Quarto will try to make it look nice and the defaults usually work well once you have enough text.)
+
+```{r}
+#| label: fig-planes
+#| fig-cap: Relationship between wing length and width
+>>>>>>> 4eb8cc29a4d3256df8c31f218ab87f87059ea7b6
 #| echo: false
 #| warning: false
 #| label: Fig-1

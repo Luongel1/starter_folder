@@ -8,6 +8,7 @@
 # Any other information needed? None
 
 
+<<<<<<< HEAD
 # Load necessary library
 library(readr)
 
@@ -42,3 +43,17 @@ test_civic_centres_and_licenses <- function(df) {
 # Run the tests
 test_column_names(df)
 test_civic_centres_and_licenses(df)
+=======
+#### Workspace setup ####
+library(tidyverse)
+
+
+#### Test data ####
+data <- read_csv("data/raw_data/simulated.csv")
+
+# Test for negative numbers
+data$number_of_marriage |> min() <= 0
+
+# Test for NAs
+all(is.na(data$number_of_marriage))
+>>>>>>> 4eb8cc29a4d3256df8c31f218ab87f87059ea7b6
